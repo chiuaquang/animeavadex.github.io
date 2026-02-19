@@ -93,7 +93,7 @@
       "title": "Kemo",
       "altTitle": "Hậh",
       "rating": 8,
-      "image": "j",
+      "image": "https://via.placeholder.com/300x450/ffb347/ffffff?text=Oshi+No+Ko",
       "views": "900",
       "genre": "Anime bộ",
       "tags": [
@@ -101,7 +101,7 @@
       ],
       "description": "Anime tình cảm",
       "episodes": {
-        "1": "Hii"
+        "1": "https://www.youtube.com/embed/dQw4w9WgXcQ"
       }
     }
   ]
