@@ -24,6 +24,9 @@
             align-items: center;
             gap: 20px;
             border-bottom: 1px solid #2a2c35;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .back-btn {
@@ -34,6 +37,9 @@
             border-radius: 25px;
             font-size: 14px;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .back-btn:hover {
@@ -56,16 +62,18 @@
 
         .video-section {
             background: #000;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             margin-bottom: 20px;
             border: 1px solid #2a2c35;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            background: #000;
         }
 
         .video-wrapper iframe {
@@ -84,15 +92,16 @@
         }
 
         .video-info h1 {
-            font-size: 1.5em;
+            font-size: 1.6em;
             color: #ff6b6b;
             margin-bottom: 5px;
         }
 
         .video-info .alt-title {
             color: #b4b9d6;
-            font-size: 14px;
-            margin-bottom: 10px;
+            font-size: 15px;
+            margin-bottom: 15px;
+            font-style: italic;
         }
 
         .video-meta {
@@ -101,11 +110,20 @@
             color: #b4b9d6;
             font-size: 14px;
             flex-wrap: wrap;
+            padding: 10px 0;
+            border-top: 1px solid #2a2c35;
+            border-bottom: 1px solid #2a2c35;
+        }
+
+        .video-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .anime-description {
             background: #1a1c24;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 25px;
             margin-bottom: 20px;
             border: 1px solid #2a2c35;
@@ -124,13 +142,15 @@
             color: #b4b9d6;
             line-height: 1.8;
             font-size: 15px;
+            white-space: pre-line;
         }
 
         .episodes-section {
             background: #1a1c24;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 25px;
             border: 1px solid #2a2c35;
+            margin-bottom: 30px;
         }
 
         .section-title {
@@ -140,6 +160,9 @@
             color: #ff6b6b;
             font-size: 18px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .episodes-grid {
@@ -159,14 +182,22 @@
             transition: 0.3s;
             border: 1px solid #3a3e4a;
             font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .episode-btn:hover,
+        .episode-btn:hover {
+            background: #ff6b6b;
+            color: #fff;
+            border-color: #ff6b6b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+
         .episode-btn.active {
             background: #ff6b6b;
             color: #fff;
             border-color: #ff6b6b;
-            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(255,107,107,0.5);
         }
 
         .loading {
@@ -178,10 +209,10 @@
         .loading::after {
             content: '';
             display: block;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             margin: 20px auto;
-            border: 3px solid #2a2c35;
+            border: 4px solid #2a2c35;
             border-top-color: #ff6b6b;
             border-radius: 50%;
             animation: spin 1s linear infinite;
@@ -191,9 +222,41 @@
             to { transform: rotate(360deg); }
         }
 
+        .error-message {
+            text-align: center;
+            padding: 60px;
+            color: #ff6b6b;
+            font-size: 18px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tag {
+            background: #2a2c35;
+            color: #b4b9d6;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            border: 1px solid #3a3e4a;
+        }
+
+        .tag:hover {
+            background: #ff6b6b;
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
+            .header {
+                padding: 10px 15px;
+            }
+            
             .video-info h1 {
-                font-size: 1.2em;
+                font-size: 1.3em;
             }
             
             .episodes-grid {
@@ -204,23 +267,31 @@
                 padding: 12px 3px;
                 font-size: 13px;
             }
+            
+            .video-meta {
+                gap: 12px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <a href="index.html" class="back-btn">← Quay lại</a>
+        <a href="index.html" class="back-btn">
+            <span>←</span> Quay lại
+        </a>
         <a href="index.html" class="logo">AnimeHay</a>
     </header>
 
     <div class="container">
         <div class="video-section" id="videoSection">
-            <div class="loading">Đang tải...</div>
+            <div class="loading">Đang tải nội dung...</div>
         </div>
         
         <div class="anime-description" id="descriptionSection" style="display: none;">
             <h3>📖 NỘI DUNG</h3>
             <p id="animeDescription"></p>
+            <div class="tag-container" id="tagContainer"></div>
         </div>
         
         <div class="episodes-section" id="episodesSection"></div>
@@ -235,8 +306,17 @@
             const animeId = parseInt(localStorage.getItem('animeId') || '1');
             
             currentAnime = animeData.find(a => a.id === animeId);
+            
             if (!currentAnime) {
-                window.location.href = 'index.html';
+                document.getElementById('videoSection').innerHTML = `
+                    <div class="error-message">
+                        <div style="font-size: 48px; margin-bottom: 20px;">😵</div>
+                        <div>Không tìm thấy anime!</div>
+                        <div style="margin-top: 20px;">
+                            <a href="index.html" style="color: #ff6b6b; text-decoration: none;">← Về trang chủ</a>
+                        </div>
+                    </div>
+                `;
                 return;
             }
 
@@ -244,19 +324,30 @@
             const episodeKeys = Object.keys(episodes).sort((a, b) => parseInt(a) - parseInt(b));
             currentEpisode = parseInt(episodeKeys[0]) || 1;
 
+            // Hiển thị icon cho thể loại
+            let genreIcon = '';
+            if (currentAnime.genre === 'Anime mới') genreIcon = '🆕 ';
+            else if (currentAnime.genre === 'Anime bộ') genreIcon = '📺 ';
+            else if (currentAnime.genre === 'Anime lẻ') genreIcon = '🎬 ';
+            else if (currentAnime.genre === 'HH Trung Quốc') genreIcon = '🇨🇳 ';
+
             // Video section
             document.getElementById('videoSection').innerHTML = `
                 <div class="video-wrapper">
-                    <iframe id="videoPlayer" src="${episodes[currentEpisode] || ''}" allowfullscreen></iframe>
+                    <iframe id="videoPlayer" src="${episodes[currentEpisode] || ''}" 
+                            allowfullscreen 
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
                 </div>
                 <div class="video-info">
                     <h1>${currentAnime.title}</h1>
                     ${currentAnime.altTitle ? `<div class="alt-title">${currentAnime.altTitle}</div>` : ''}
                     <div class="video-meta">
-                        <span>★ ${currentAnime.rating}</span>
-                        <span>👁️ ${currentAnime.views} lượt xem</span>
+                        <span>⭐ ${currentAnime.rating}</span>
+                        <span>👁️ ${currentAnime.views || '0'} lượt xem</span>
                         <span>📺 ${episodeKeys.length} tập</span>
-                        <span>🏷️ ${currentAnime.genre}</span>
+                        <span>${genreIcon}${currentAnime.genre}</span>
                     </div>
                 </div>
             `;
@@ -265,6 +356,14 @@
             if (currentAnime.description) {
                 document.getElementById('descriptionSection').style.display = 'block';
                 document.getElementById('animeDescription').textContent = currentAnime.description;
+                
+                // Hiển thị tags nếu có
+                if (currentAnime.tags && currentAnime.tags.length > 0) {
+                    const tagContainer = document.getElementById('tagContainer');
+                    tagContainer.innerHTML = currentAnime.tags.map(tag => 
+                        `<span class="tag">#${tag}</span>`
+                    ).join('');
+                }
             }
 
             // Episodes section
@@ -279,7 +378,9 @@
             });
 
             document.getElementById('episodesSection').innerHTML = `
-                <div class="section-title">📺 DANH SÁCH TẬP</div>
+                <div class="section-title">
+                    <span>📺</span> DANH SÁCH TẬP (${episodeKeys.length} tập)
+                </div>
                 <div class="episodes-grid">
                     ${episodesHtml}
                 </div>
