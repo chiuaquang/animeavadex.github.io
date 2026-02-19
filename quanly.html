@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản Lý Anime - Admin</title>
     <style>
-        /* Giữ nguyên phần CSS cũ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
         body {
             background: #0f0f14;
             color: #fff;
             padding: 20px;
         }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
         }
+
         .header {
             background: linear-gradient(135deg, #1a1c28, #0b0d17);
             padding: 25px 30px;
@@ -33,6 +35,7 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+
         .header h1 {
             color: #ff6b6b;
             font-size: 28px;
@@ -40,11 +43,13 @@
             align-items: center;
             gap: 10px;
         }
+
         .header-actions {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
+
         .btn {
             padding: 12px 25px;
             border: none;
@@ -57,29 +62,36 @@
             align-items: center;
             gap: 8px;
         }
+
         .btn-primary {
             background: #ff6b6b;
             color: white;
         }
+
         .btn-primary:hover {
             background: #ff5252;
             transform: translateY(-2px);
             box-shadow: 0 5px 20px rgba(255,107,107,0.4);
         }
+
         .btn-success {
             background: #00b894;
             color: white;
         }
+
         .btn-success:hover {
             background: #00a884;
         }
+
         .btn-secondary {
             background: #2a2f42;
             color: #b4b9d6;
         }
+
         .btn-secondary:hover {
             background: #3a4055;
         }
+
         .form-section {
             background: #1a1c28;
             border-radius: 16px;
@@ -88,6 +100,7 @@
             border: 1px solid #ff6b6b;
             box-shadow: 0 10px 30px rgba(255,107,107,0.1);
         }
+
         .form-section h2 {
             color: #ff6b6b;
             margin-bottom: 20px;
@@ -95,14 +108,17 @@
             border-bottom: 1px solid #2f3545;
             padding-bottom: 15px;
         }
+
         .form-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
@@ -110,6 +126,7 @@
             font-size: 14px;
             font-weight: 600;
         }
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -123,22 +140,26 @@
             transition: 0.3s;
             font-size: 14px;
         }
+
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
             border-color: #ff6b6b;
             box-shadow: 0 0 0 3px rgba(255,107,107,0.1);
         }
+
         .form-group textarea {
             height: 100px;
             resize: vertical;
         }
+
         .form-row {
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             margin-top: 20px;
         }
+
         .episodes-manager {
             background: #0f0f14;
             border-radius: 12px;
@@ -146,11 +167,13 @@
             margin: 20px 0;
             border: 1px solid #2f3545;
         }
+
         .episodes-manager h3 {
             color: #ff6b6b;
             margin-bottom: 15px;
             font-size: 18px;
         }
+
         .episode-item {
             display: flex;
             gap: 15px;
@@ -161,12 +184,14 @@
             border-radius: 10px;
             border: 1px solid #2f3545;
         }
+
         .episode-number {
             min-width: 60px;
             font-weight: bold;
             color: #ff6b6b;
             font-size: 16px;
         }
+
         .episode-link-input {
             flex: 1;
             padding: 10px 15px;
@@ -175,10 +200,12 @@
             border-radius: 8px;
             color: #fff;
         }
+
         .episode-actions {
             display: flex;
             gap: 8px;
         }
+
         .episode-btn {
             padding: 8px 12px;
             border: none;
@@ -187,14 +214,17 @@
             font-weight: bold;
             transition: 0.3s;
         }
+
         .episode-btn.edit {
             background: #fdcb6e;
             color: #2d3436;
         }
+
         .episode-btn.delete {
             background: #d63031;
             color: white;
         }
+
         .episode-btn.add {
             background: #00b894;
             color: white;
@@ -202,25 +232,30 @@
             padding: 12px;
             margin-top: 10px;
         }
+
         .anime-list {
             background: #1a1c28;
             border-radius: 16px;
             padding: 25px;
             border: 1px solid #2f3545;
         }
+
         .anime-list h2 {
             color: #ff6b6b;
             margin-bottom: 20px;
             font-size: 22px;
         }
+
         .anime-table {
             width: 100%;
             overflow-x: auto;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
         }
+
         th {
             text-align: left;
             padding: 15px 10px;
@@ -229,25 +264,30 @@
             font-weight: 600;
             font-size: 14px;
         }
+
         td {
             padding: 15px 10px;
             border-bottom: 1px solid #2f3545;
             color: #b4b9d6;
         }
+
         tr:hover td {
             background: #2a2f4230;
         }
+
         .anime-thumb {
             width: 50px;
             height: 70px;
             object-fit: cover;
             border-radius: 6px;
         }
+
         .action-buttons {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
         }
+
         .action-btn {
             padding: 6px 12px;
             border: none;
@@ -257,27 +297,34 @@
             font-weight: 600;
             transition: 0.3s;
         }
+
         .action-btn.edit {
             background: #fdcb6e;
             color: #2d3436;
         }
+
         .action-btn.edit:hover {
             background: #f39c12;
         }
+
         .action-btn.delete {
             background: #d63031;
             color: white;
         }
+
         .action-btn.delete:hover {
             background: #c0392b;
         }
+
         .action-btn.episodes {
             background: #00b894;
             color: white;
         }
+
         .action-btn.episodes:hover {
             background: #00a884;
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -290,9 +337,11 @@
             justify-content: center;
             align-items: center;
         }
+
         .modal.active {
             display: flex;
         }
+
         .modal-content {
             background: #1a1c28;
             border-radius: 20px;
@@ -301,6 +350,7 @@
             width: 90%;
             border: 2px solid #ff6b6b;
         }
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -309,20 +359,24 @@
             padding-bottom: 15px;
             border-bottom: 1px solid #2f3545;
         }
+
         .modal-header h3 {
             color: #ff6b6b;
             font-size: 20px;
         }
+
         .close-modal {
             font-size: 28px;
             cursor: pointer;
             color: #b4b9d6;
         }
+
         .loading {
             text-align: center;
             padding: 40px;
             color: #ff6b6b;
         }
+
         .loading::after {
             content: '';
             display: block;
@@ -334,9 +388,11 @@
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
+
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
         .toast {
             position: fixed;
             top: 20px;
@@ -348,9 +404,11 @@
             z-index: 2000;
             animation: slideIn 0.3s;
         }
+
         .toast.error {
             background: #d63031;
         }
+
         @keyframes slideIn {
             from {
                 transform: translateX(100%);
@@ -361,6 +419,7 @@
                 opacity: 1;
             }
         }
+
         .image-preview {
             width: 100px;
             height: 150px;
@@ -369,6 +428,7 @@
             margin-top: 10px;
             border: 2px solid #ff6b6b;
         }
+
         .upload-guide {
             background: #1a1c28;
             border-radius: 12px;
@@ -376,19 +436,23 @@
             margin: 30px 0;
             border-left: 4px solid #ff6b6b;
         }
+
         .upload-guide h3 {
             color: #ff6b6b;
             margin-bottom: 15px;
         }
+
         .upload-guide ol {
             color: #b4b9d6;
             padding-left: 20px;
             line-height: 1.8;
         }
+
         .upload-guide a {
             color: #ff6b6b;
             text-decoration: none;
         }
+
         .upload-guide a:hover {
             text-decoration: underline;
         }
@@ -436,9 +500,10 @@
                 <div class="form-group">
                     <label>Thể loại *</label>
                     <select id="animeGenre">
-                        <option value="Anime bộ">Anime bộ</option>
-                        <option value="Anime lẻ">Anime lẻ</option>
-                        <option value="HH Trung Quốc">HH Trung Quốc</option>
+                        <option value="Anime mới">🆕 Anime mới</option>
+                        <option value="Anime bộ">📺 Anime bộ</option>
+                        <option value="Anime lẻ">🎬 Anime lẻ</option>
+                        <option value="HH Trung Quốc">🇨🇳 HH Trung Quốc</option>
                     </select>
                 </div>
 
@@ -580,6 +645,13 @@
 
             tbody.innerHTML = animeData.map(anime => {
                 const episodeCount = Object.keys(anime.episodes || {}).length;
+                // Thêm icon cho thể loại
+                let genreIcon = '';
+                if (anime.genre === 'Anime mới') genreIcon = '🆕 ';
+                else if (anime.genre === 'Anime bộ') genreIcon = '📺 ';
+                else if (anime.genre === 'Anime lẻ') genreIcon = '🎬 ';
+                else if (anime.genre === 'HH Trung Quốc') genreIcon = '🇨🇳 ';
+                
                 return `
                     <tr>
                         <td>${anime.id}</td>
@@ -590,7 +662,7 @@
                         </td>
                         <td>★ ${anime.rating}</td>
                         <td>${anime.views}</td>
-                        <td>${anime.genre}</td>
+                        <td>${genreIcon}${anime.genre}</td>
                         <td>${episodeCount} tập</td>
                         <td>
                             <div class="action-buttons">
@@ -684,7 +756,7 @@
             showToast('✅ Đã xóa khỏi bộ nhớ! Nhấn "XUẤT JSON" để cập nhật lên GitHub.');
         }
 
-        // Các hàm phụ trợ giữ nguyên
+        // Các hàm phụ trợ
         function showAddForm() {
             document.getElementById('formTitle').innerHTML = '➕ THÊM ANIME MỚI';
             document.getElementById('saveBtn').innerHTML = '<span>💾</span> LƯU ANIME';
@@ -702,7 +774,7 @@
             document.getElementById('animeTitle').value = '';
             document.getElementById('animeAltTitle').value = '';
             document.getElementById('animeImage').value = '';
-            document.getElementById('animeGenre').value = 'Anime bộ';
+            document.getElementById('animeGenre').value = 'Anime mới';
             document.getElementById('animeRating').value = '8.0';
             document.getElementById('animeViews').value = '';
             document.getElementById('animeTags').value = '';
@@ -792,7 +864,7 @@
             document.getElementById('animeTitle').value = anime.title || '';
             document.getElementById('animeAltTitle').value = anime.altTitle || '';
             document.getElementById('animeImage').value = anime.image || '';
-            document.getElementById('animeGenre').value = anime.genre || 'Anime bộ';
+            document.getElementById('animeGenre').value = anime.genre || 'Anime mới';
             document.getElementById('animeRating').value = anime.rating || 8.0;
             document.getElementById('animeViews').value = anime.views || '';
             document.getElementById('animeTags').value = (anime.tags || []).join(', ');
