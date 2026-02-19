@@ -87,6 +87,22 @@
         "6": "https://www.youtube.com/embed/2Vv-BfVoq4g",
         "7": "https://www.youtube.com/embed/CevxZvSJLk8"
       }
+    },
+    {
+      "id": 6,
+      "title": "Kemo",
+      "altTitle": "Hậh",
+      "rating": 8,
+      "image": "j",
+      "views": "900",
+      "genre": "Anime bộ",
+      "tags": [
+        "Tình cảm"
+      ],
+      "description": "Anime tình cảm",
+      "episodes": {
+        "1": "Hii"
+      }
     }
   ]
 }
