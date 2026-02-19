@@ -103,6 +103,22 @@
       "episodes": {
         "1": "https://www.youtube.com/embed/dQw4w9WgXcQ"
       }
+    },
+    {
+      "id": 7,
+      "title": "Hhh",
+      "altTitle": "Hh",
+      "rating": 8,
+      "image": "https://avavntranslator.neocities.org/",
+      "views": "10",
+      "genre": "Anime mới",
+      "tags": [
+        "Anime"
+      ],
+      "description": "Anime siêu hay",
+      "episodes": {
+        "1": "https://avavntranslator.neocities.org/"
+      }
     }
   ]
 }
